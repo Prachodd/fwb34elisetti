@@ -6,11 +6,15 @@ block content
   - var results = [{brand: "ktm",year: 2010,price:"1000"},{brand: "royal enfield",year: 2011,price:"1100"},{brand: "R15",year: 2012,price:"1200"}];
    div(class = "container-fluid")
     div(class = "row")
-     each form in results
-        div(class="col-sm-4") brand: #{form.brand} 
+     each i,index in results
+        div(class="col-sm-4" onclick=`buy(${index})`) brand: #{i.brand} 
         br
         br 
-        div(class="col-sm-4") year: #{form.year}
+        div(class="col-sm-4" onclick=`buy(${index})`) year: #{i.year}
         br
         br  
-        div(class="col-sm-4") price: #{form.price}
+        div(class="col-sm-4" onclick=`buy(${index})`) price: #{i.price}
+        script.
+                function buy(itemNo){
+                    alert(`You purchased item ${itemNo+1}`)
+                }
